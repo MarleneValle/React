@@ -9,7 +9,7 @@ import useStyles from './styles'
 //     { id: 2, name: 'Laptop', description: 'Apple macbook.', price: '$500', image: './'},
 // ];
 
-const Products = ({ products, onAddToCard }) => {
+const Products = ({ products, handleAddToCart }) => {
     const classes = useStyles();
 
     return (
@@ -18,7 +18,7 @@ const Products = ({ products, onAddToCard }) => {
             <Grid container justify="center" spacing={4}>
                 {products.map((product) => (
                     <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-                        <Product product={product} onAddToCard={onAddToCard} />
+                        <Product product={product} handleAddToCart={handleAddToCart} />
                     </Grid>
                 ))}
             </Grid>
