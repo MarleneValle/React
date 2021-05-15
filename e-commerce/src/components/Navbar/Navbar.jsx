@@ -1,9 +1,9 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Badge, Typography } from '@material-ui/core';
 import { ShoppingCart } from '@material-ui/icons';
 import { Link, useLocation } from 'react-router-dom';
+import LoyaltyRoundedIcon from '@material-ui/icons/LoyaltyRounded';
 
-import logo from '../../assets/logo';
 import useStyles from './styles';
 
 const Navbar = ({totalItems}) => {
@@ -13,22 +13,22 @@ const Navbar = ({totalItems}) => {
         <div>
             <AppBar position="fixed" className={classes.appBar} color="inherit" >
                 <Toolbar>
-                    <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
-                        <img src={ logo } alt="Home Storage" height="35px" className={classes.image} />
+                    <Typography component={Link} to="/" variant="h2" className={classes.title} color="primary">
+                        <LoyaltyRoundedIcon fontSize="large"  />
                        Send Gifts
-                    </Typography>
+                       <LoyaltyRoundedIcon fontSize="large"/>
+                    </Typography >
                     <div className={classes.grow} />
-                    { location.pathname === '/' && (
+                    { location.pathname !==  '/checkout' && (
                     <div className={classes.button}>
-                        <IconButton component={Link} to='/cart' aria-label="Show cart items" color="inherit">
+                        <IconButton component={Link} to='/cart' aria-label="Show cart items" color="primary" >
                             <Badge badgeContent={totalItems} color="secondary">
-                                <ShoppingCart />
+                                <ShoppingCart fontSize="large"/>
                             </Badge>
                         </IconButton>
                     </div>
                     )}
                 </Toolbar>
-
             </AppBar>
             
         </div>

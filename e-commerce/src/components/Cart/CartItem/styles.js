@@ -5,8 +5,8 @@ export default makeStyles(() => ({
     height: 260,
   },
   cardContent: {
-    display: 'flex',
-    justifyContent: 'space-between',
+    display: 'row',
+    padding: 10,
   },
   cartActions: {
     justifyContent: 'space-between',
@@ -15,4 +15,9 @@ export default makeStyles(() => ({
     display: 'flex',
     alignItems: 'center',
   },
+  icons: {
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'space-between',
+  }
 }));

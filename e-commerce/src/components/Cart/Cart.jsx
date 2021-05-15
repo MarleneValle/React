@@ -11,14 +11,16 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
     const classes = useStyles();
 
     const EmptyCart = () => (
-        <Typography variant="subtitle1">You have no items in your shopping cart
-            <Link to="/" className={classes.link} > Start adding some items </Link>
-        </Typography>
+        <div >
+            <Typography color="secondary" variant="h5"> You have no items in your shopping cart </Typography>
+            <Typography component={Link} to='/' variant="h5">Go to the store</Typography>
+            
+        </div>
     );  
 
     const FilledCart = () => (
         <>
-            <Grid container spacing={3}>
+            <Grid justify="center" container spacing={3}>
                 {cart.line_items.map((item) => (
                     <Grid item xs={12} sm={4} key={item.id}>
                         <CartItem item={item} handleUpdateCartQty={handleUpdateCartQty} handleRemoveFromCart={handleRemoveFromCart} />
@@ -26,7 +28,7 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
                 ))}
             </Grid>
             <div className={classes.cartDetails}>
-                <Typography variant="h4">Subtotal:{ cart.subtotal.formatted_with_code}</Typography>
+                <Typography color="secondary" variant="h4">Subtotal: { cart.subtotal.formatted_with_code}</Typography>
                 <div>
                     <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={handleEmptyCart}>Empty Cart</Button>
                     <Button component={Link} to='/checkout' className={classes.checkoutButton} size="large" type="button" variant="contained" color="primary">Checkout</Button>
@@ -40,7 +42,7 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
     return (
         <Container>
             <div className={classes.toolbar} />
-            <Typography className={classes.title} variant="h3" gutterBottom >Your shopping list</Typography>
+            <Typography color="secondary" className={classes.title} variant="h3" gutterBottom >Your products:</Typography>
             { !cart.line_items.length ? <EmptyCart /> : <FilledCart />}
         </Container>
     )
