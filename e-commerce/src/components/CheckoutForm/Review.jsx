@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, List, ListItem, ListItemText, CardMedia } from '@material-ui/core';
+import { Typography, List, ListItem, ListItemText} from '@material-ui/core';
 
 const Review = ({ checkoutToken }) => {
     return (
