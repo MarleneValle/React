@@ -8,15 +8,19 @@ const db = mysql.createConnection({
     password: "Vahg9030",
     database: "CRUDDataBase",
 });
-
-
-app.get("/", (req, res) =>{
-
-    const sqlInsert = "INSERT INTO `movie_reviews` (`movieName`, `movieReview`) VALUES ('inception', 'good movie');"  
-    db.query(sqlInsert, (err, result) =>{
-        res.send("Hello Marlene from Malmö")
-    })
+db.connect((err) => {
+  if (err) throw err;
+  console.log('Connected!');
 });
+
+
+// app.get("/", (req, res) =>{
+
+//     const sqlInsert = "INSERT INTO `movie_reviews` (`movieName`, `movieReview`) VALUES ('inception', 'good movie');"  
+//     db.query(sqlInsert, (err, result) =>{
+//         res.send("Hello Marlene from Malmö")
+//     })
+// });
 
 app.listen(3001, () =>{
     console.log("running on port 3001")
