@@ -66,7 +66,7 @@ function App() {
               <h1>{val.movieName}</h1>
               <p>{val.movieReview}</p>
 
-              <button onClick={() => {deleteReview(val.movieName)}}>Delete</button>
+              <button onClick={() => {deleteReview(val.id)}}>Delete</button>
               <input
               type="text"
               id='updateInput'
