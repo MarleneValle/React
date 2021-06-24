@@ -37,12 +37,16 @@ app.post('/api/insert', (req, res) => {
   })
 });
 
-app.delete('/api/delete/:movieName', (req,res) =>{
-  const name = req.params.movieName;
+app.delete('/api/delete/:id', (req,res) =>{
+  const id = req.params.id;
   const sqlDelete = 'DELETE FROM CRUDDataBase.movie_reviews WHERE id = ?';
 
-  db.query(sqlDelete, name, (err, result) =>{
-    if(err)  console.log(err);
+  db.query(sqlDelete, id , (err, result) =>{
+    if(err) {
+      console.log(err)
+    } else {
+      res.send(result);
+    }
   });
 });
 
@@ -60,6 +64,8 @@ app.put('/api/update', (req,res) => {
     }
   });
 });
+
+
 
 app.listen(3001, () =>{
     console.log("running on port 3001")

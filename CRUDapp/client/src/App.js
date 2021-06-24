@@ -26,16 +26,28 @@ function App() {
       ]);
   };
 
-  const deleteReview = (movie) => {
-    Axios.delete(`http://localhost:3001/api/delete/${movie}`);
+  const deleteReview = (id) => {
+    Axios.delete(`http://localhost:3001/api/delete/${id}`).then((response) => {
+      setMovieList(
+        movieList.filter((val) => {
+          return val.id != id;
+        })
+      );
+
+    });
   };
 
   const updateReview = (id) => {
     Axios.put('http://localhost:3001/api/update', {
       id: id,
       movieReview: newReview,
-    });
-    setNewReview('')
+    }).then (
+      (response) => {
+        setMovieList(movieList.map((val) => {
+          return val.id==id ? {id: val.id, movieName: val.movieName, movieReview: newReview} : val
+        }))
+      }
+    )
   };
 
 
