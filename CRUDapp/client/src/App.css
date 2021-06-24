@@ -1,6 +1,10 @@
 .App {
+  background: #9381FF;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #fff;
   text-align: center;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 30px;
+  
 
 }
 .form { 
