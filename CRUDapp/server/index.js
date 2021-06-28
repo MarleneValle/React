@@ -1,14 +1,15 @@
+const mysql = require("mysql");
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require ('body-parser');
 const cors = require('cors')
 const app = express();
-const mysql = require("mysql");
 
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'Vahg9003', 
-    database: "CRUDDataBase",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
 });
 db.connect((err) => {
   if (err) throw err;
@@ -64,8 +65,6 @@ app.put('/api/update', (req,res) => {
     }
   });
 });
-
-
 
 app.listen(3001, () =>{
     console.log("running on port 3001")
