@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Products, ProductDescription , Navbar, Cart, Checkout, Footer } from './components';
+import { Products, ProductDescription , Navbar, Cart, Checkout, Footer, NotFound } from './components';
 import { commerce } from './lib/commerce';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
@@ -110,6 +110,9 @@ const App = () => {
                                 onCaptureCheckout={handleCaptureCheckout}
                                 error={errorMessage}
                                 refreshCart={refreshCart}/>
+                        </Route>
+                        <Route path= "*">
+                            <NotFound />
                         </Route>
                     </Switch>
                     <Footer/>

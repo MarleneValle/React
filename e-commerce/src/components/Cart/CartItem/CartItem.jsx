@@ -13,7 +13,7 @@ const CartItem = ({ item, handleUpdateCartQty, handleRemoveFromCart }) => {
         <Card className="cart-item">
             <CardMedia className={classes.media} image={item.media.source} alt={item.name}/>
                 <div>
-                    <Button component={Link} to={`/products/${item.name}`} className={classes.buttons} size="medium" type="button" variant="outlined" color="primary" >See product again
+                    <Button component={Link} to={`/products/${item.name}`} className={classes.buttons} size="medium" type="button" variant="outlined" color="primary" >See details
                     </Button>
                 </div>
             <div className={classes.cardContent}>

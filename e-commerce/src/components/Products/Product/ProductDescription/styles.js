@@ -2,25 +2,27 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
     root: {
-        margin: '30px',
+        maxWidth: '100%',
+        marginTop: '7%',
         padding: '3% 5%',
         display: 'flex',
-        justifyContent: 'center',
+        [theme.breakpoints.up('xs')]: {
+            display: 'row',
+        }
     },
     media: {
-        height: '100',
+        height: '700px',
         width: '100%',
-        
-        // height: 500,
-        // width: '100%',
-        // marginBottom: '3%'
     },
   
-    text: {
-        display: 'flex',
+    description: {
+        display: 'row',
+        alignItems: 'center',
+        margin: '10',
     },
    
     productDetails: {
+        display: 'row',
         alignItems: 'center',
         marginBottom: '5%',
         marginTop: 90,

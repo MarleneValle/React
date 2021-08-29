@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button, CssBaseline } from '@material-ui/core'
-import {Link, useHistory} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import { commerce } from '../../../lib/commerce';
 import useStyles from './styles';
 import AddressForm from '../AddressForm';
@@ -14,7 +14,6 @@ const Checkout = ({ cart, order, onCaptureCheckout, error, refreshCart}) => {
     const [shippingData, setShippingData] = useState({});
     const [isFinish, setIsFinish] = useState(false);  
     const classes = useStyles();
-    const history = useHistory();
 
     useEffect(() => {
         const generateToken = async () => {
