@@ -7,8 +7,9 @@ import Review from './Review';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
 
-const PaymentForm = ({checkoutToken, shippingData, backStep, onCaptureCheckout, nextStep, timeout }) => {
-    const handleSubmit = async (event, elements, stripe) => {
+const PaymentForm = ({checkoutToken, shippingData, backStep, onCaptureCheckout, nextStep, timeout, refreshCart}) => {
+
+        const handleSubmit = async (event, elements, stripe) => {
         event.preventDefault();
         if(!stripe || !elements) return;
 
@@ -24,7 +25,6 @@ const PaymentForm = ({checkoutToken, shippingData, backStep, onCaptureCheckout, 
                 customer: {firstname: shippingData.firstName, lastname: shippingData.lastName, email: shippingData.email },
                 shipping: {
                     name: 'Primary', street: shippingData.address1,
-                    street: shippingData.address1,
                     town_city: shippingData.city,
                     county_state: shippingData.shippingSubdivision,
                     postal_zip_code: shippingData.zip,
@@ -40,9 +40,8 @@ const PaymentForm = ({checkoutToken, shippingData, backStep, onCaptureCheckout, 
             };
 
             onCaptureCheckout(checkoutToken.id, orderData);
-            
+            refreshCart();
             timeout();
-
             nextStep();
         }
     };
@@ -60,9 +59,8 @@ const PaymentForm = ({checkoutToken, shippingData, backStep, onCaptureCheckout, 
                             <br /> <br />
                             <div style={{ display:'flex', justifyContent: 'space-between'}}>
                                 <Button variant="outlined" onClick={backStep}>Back</Button>
-                                <Button type="submit" variant="contained" disable={!stripe} color="primary">Pay { checkoutToken.live.subtotal.formatted_with_code }
+                                <Button type="submit" variant="contained" disable={!stripe} color="primary">Pay { checkoutToken.live.subtotal.formatted_with_symbol}
                                 </Button>
-
                             </div>
                         </form>
                     )}

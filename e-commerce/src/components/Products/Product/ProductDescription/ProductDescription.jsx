@@ -1,10 +1,9 @@
 import React from 'react';
 import {useParams } from 'react-router-dom';
-import { Card, CardMedia, CardContent, CardActions, Typography, Button, Container} from '@material-ui/core';
+import { CardMedia, Typography, Button, Container} from '@material-ui/core';
 import {Link} from 'react-router-dom'
 import KeyboardArrowLeftRoundedIcon from '@material-ui/icons/KeyboardArrowLeftRounded';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
-import RemoveCircleRoundedIcon from '@material-ui/icons/RemoveCircleRounded';
 import AddCircleRoundedIcon from '@material-ui/icons/AddCircleRounded';
 import useStyles from './styles';
 
@@ -20,7 +19,7 @@ const ProductDescription = ( {products, handleRemoveFromCart,    handleAddToCart
                 .filter((product)=> product.name === name)
                 .map((product, index) => (
                 <>
-                <div className={classes.toolbar}/>
+                <div/>
                 <main className={classes.productDetails}>
                         <Container  >
                             <div className={classes.text}>

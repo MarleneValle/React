@@ -8,12 +8,11 @@ import PaymentForm from '../PaymentForm';
 
 const steps = ['Shipping address', 'Payment details'];
 
-const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
+const Checkout = ({ cart, order, onCaptureCheckout, error, refreshCart}) => {
     const [activeStep, setActiveStep] = useState(0);
     const [checkoutToken, setCheckoutToken] = useState(null);
     const [shippingData, setShippingData] = useState({});
-    const [isFinish, setIsFinish] = useState(false);
-
+    const [isFinish, setIsFinish] = useState(false);  
     const classes = useStyles();
     const history = useHistory();
 
@@ -24,7 +23,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
              setCheckoutToken(token)
             } catch (error) {
-                history.pushState('./')
+                console.log(error);
             }
         }
         
@@ -43,25 +42,26 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
     const timeout = () => {
         setTimeout(() => {
-            
-        }, 3000);
+            setIsFinish(true)    
+        }, 2000);
     }
 
     let Confirmation = () => order.customer ? (
         <> 
             <div>
-                <Typography variant="h5"> Thanks for your purchase, {order.customer.firstname} {order.customer.lastname} </Typography>
-                <Divider className={classes.divider} />
-                <Typography variant="subtitle2">Order ref: {order.customer_reference}</Typography>
+             <Typography variant="h5">Thank you for your purchase, {order.customer.firstName} {order.customer.lastName}!</Typography>
+             <Divider className={classes.divider} />
+             <Typography variant="subtitle2">Order ref: {order.customer_reference}</Typography>
             </div>
             <br />
             <Button component={Link} to="./" variant="outlined" type="button">Back to Home</Button>
-        </>
+        </> 
     ) : isFinish ? (
         <> 
             <div>
-                <Typography variant="h5"> Thanks for your purchase </Typography>
+                <Typography variant="h5"> Thanks for your purchase! </Typography>
                 <Divider className={classes.divider} />
+                <Typography variant="subtitle2">Order ref: 00087 </Typography>
             </div>
             <br />
             <Button component={Link} to="./" variant="outlined" type="button">Back to Home</Button>
@@ -83,7 +83,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
     const Form = () => activeStep === 0 
     ? <AddressForm checkoutToken={checkoutToken} next={next} />
-    : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} onCaptureCheckout={onCaptureCheckout} timeout={timeout} />
+    : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} onCaptureCheckout={onCaptureCheckout} timeout={timeout} refreshCart={refreshCart} />
 
     return (
         <>

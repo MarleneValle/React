@@ -4,7 +4,7 @@ import useStyles from './styles';
 import MailIcon from '@material-ui/icons/Mail';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
-import { Link } from 'react-router-dom';
+
 
 const Footer = () => {
   const classes = useStyles();

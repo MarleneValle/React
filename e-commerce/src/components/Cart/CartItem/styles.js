@@ -6,14 +6,17 @@ export default makeStyles(() => ({
   },
   cardContent: {
     display: 'row',
-    padding: 10,
+    margin: 10,
   },
-  cartActions: {
+  cardActions: {
+    display: 'flex',
+    width: '100%',
     justifyContent: 'space-between',
   },
   buttons: {
     display: 'flex',
     alignItems: 'center',
+    margin: 4,
   },
   icons: {
     display: 'flex',

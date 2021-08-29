@@ -13,8 +13,9 @@ export default makeStyles(() => ({
         justifyContent: 'space-between',
     },
     cardContent: {
-        display: 'flex',
+        display: 'row',
         justifyContent: 'space-between',
+        margin: '0 10px',
     },
     descriptionButton: {
        maxWidth: '100%',
