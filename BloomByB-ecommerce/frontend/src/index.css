@@ -55,6 +55,38 @@ a:hover{
   color: #E2B4BD;
 }
 
+ul{
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+li{
+  margin-top: 1rem; 
+}
+button{
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px #437566 solid;
+  font-size: 1.6rem;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #668F88;
+  color: white;
+  cursor: pointer;
+}
+button:hover{
+  color: #E2B4BD;
+  border: 0.1rem #E2B4BD solid ;
+}
+button.block{
+  width: 100%;
+}
+/* button.primary{
+  background-color: #BF8C73;
+} */
+
+
 /* Headers */
 header a{
   color: white;
@@ -74,15 +106,30 @@ a.brand{
 .row.center{
   justify-content: center;
 }
-
-/*image */
-img{
-  border-radius: 0.5rem;
+.row.top{
+  align-items: flex-start;
 }
+.col-1{
+  flex: 1 1 25rem;
+}
+.description{
+  margin-left: 4rem;
+}
+.col-2{
+  flex: 2 1 50rem;
+}
+/*image */
+/* img{
+  border-radius: 0.5rem;
+} */
 img.medium{
   width: 29rem;
   height: 29rem;
   object-fit: cover;
+}
+img.large{
+  width: 100%;
+  
 }
 
 /* card */
@@ -93,10 +140,13 @@ img.medium{
   margin: 1rem;
 }
 .card-body{
-  padding: 1rem;
+  padding: 0 2rem;
+}
+.card-body a{
+  color: #437566;
 }
 .card-body >*{
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 .price{
   font-size: 2rem;
@@ -106,4 +156,14 @@ img.medium{
 .rating span{
   color: #f0c040;
   margin: 0.1rem;
+}
+.rating span:last-child{
+  color: #404040;
+}
+/* Alert */
+.success{
+  color: #20a020;
+}
+.error{
+  color: #a02020 ;
 }
